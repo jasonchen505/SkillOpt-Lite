@@ -51,7 +51,8 @@ Code Copilot Chat / Codex CLI / Claude Code / kimi-code / glm-code /
 deepseek-tui — any host that reads local `.github/prompts/*.prompt.md`),
 then **type this at the coding-agent chat prompt** (not a shell terminal):
 
-In `harness_example/spreadsheetbench`, type:
+Open `harness_example/spreadsheetbench` with your coding agent, then
+type at the chat prompt:
 
 ```
 /harnessopt-loop rounds=2 batch=40 target=gpt-5.4-nano skill=skills/initial.md
