@@ -46,9 +46,10 @@ so you can hack on them without touching the installed package.
 
 ## Running
 
-Inside your coding agent (VS Code Copilot Chat / Codex CLI / Claude Code
-/ kimi-code / glm-code / deepseek-tui — any host that reads local
-`.github/prompts/*.prompt.md`), just type:
+**Open `harness_example/spreadsheetbench/` in your coding agent** (VS
+Code Copilot Chat / Codex CLI / Claude Code / kimi-code / glm-code /
+deepseek-tui — any host that reads local `.github/prompts/*.prompt.md`),
+then **type this at the coding-agent chat prompt** (not a shell terminal):
 
 ```
 cd harness_example/spreadsheetbench

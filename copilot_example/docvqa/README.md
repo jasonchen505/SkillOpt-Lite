@@ -91,9 +91,10 @@ The exporter handles DocVQA-specific quirks:
 
 ## Run the /skillopt-loop
 
-Inside your coding agent (VS Code Copilot Chat / Codex CLI / Claude Code /
-kimi-code / glm-code / deepseek-tui — any host that reads local
-`.github/prompts/*.prompt.md`), just type:
+**Open the `copilot_example/docvqa/` folder in your coding agent** (VS Code
+Copilot Chat / Codex CLI / Claude Code / kimi-code / glm-code /
+deepseek-tui — any host that reads local `.github/prompts/*.prompt.md`),
+then **type this at the coding-agent chat prompt** (not a shell terminal):
 
 ```
 cd copilot_example/docvqa

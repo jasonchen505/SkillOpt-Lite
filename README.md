@@ -21,11 +21,12 @@
 
 ## TL;DR
 
-Open this repo in your coding agent (VS Code Copilot Chat, Codex CLI,
-Claude Code, kimi-code, glm-code, deepseek-tui — anything that reads
-`.github/prompts/*.prompt.md`). **The coding agent handles environment
-setup for you** — `pip install`, auth, data download — so you just type
-one line of vibe at the chat prompt.
+**Open this repo folder inside your coding agent** (VS Code Copilot
+Chat, Codex CLI, Claude Code, kimi-code, glm-code, deepseek-tui —
+anything that reads `.github/prompts/*.prompt.md`), then **type the
+commands below into that same coding-agent chat** — not a plain shell.
+The coding agent handles environment setup for you (`pip install`,
+auth, data download); you never leave the chat.
 
 **1. Optimize a skill on a shipped benchmark** (edit `skill.md` only):
 
