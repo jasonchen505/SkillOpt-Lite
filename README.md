@@ -38,17 +38,24 @@ cd copilot_example/livemath        # or spreadsheetbench / alfworld / ...
 
 ```
 cd harness_example/spreadsheetbench
-/harnessopt-loop rounds=2 batch=40 target=gpt-5.4-nano skill=skills/initial.md
+/harnessopt-loop rounds=2 batch=40 target=gpt-5.4-nano skill=skill_best_nano.md
 ```
 
 **3. Bring your own repo + data** — no shim to write; point the coding
 agent at a reference env and let it scaffold. Sample vibe:
 
-> Read `copilot_example/livemath/` as a reference. Build a new env at
+> Read `copilot_example/livemath/` as a reference (env code +
+> `.github/prompts/skillopt-loop.prompt.md`). Build a new env at
 > `copilot_example/myrepo/` that runs my eval:
 > `python -m myrepo.eval --items X --skill Y --out results.jsonl`.
-> Data is at `data/{train,val,test}.jsonl`; each result row has
-> `{id, input, expected, predicted, success}`. Smoke-test with
+> My raw data is a single `data/all.jsonl` — split it **2:2:6**
+> (train / val / test) with a fixed seed. Each result row has
+> `{id, input, expected, predicted, success}`. Also copy and adapt
+> the slash-command prompt files to my layout — `skillopt-loop.prompt.md`
+> for skill-only, and `harnessopt-loop.prompt.md` (see
+> `harness_example/spreadsheetbench/.github/prompts/`) if I want harness
+> co-optimization; rewrite their split sizes, allow-listed editable files,
+> and rollback tag prefix to match my directory. Smoke-test with
 > `--eval_limit 5` and confirm `samples/failed/*.md` is non-empty.
 
 Once it reports done, run flow #1 or #2 against the new folder.
