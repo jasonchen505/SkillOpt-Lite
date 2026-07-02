@@ -639,7 +639,7 @@
     <div class="metric-strip reveal" aria-label="Highlights">
       <div class="metric"><b>6</b><span>Benchmarks</span></div>
       <div class="metric"><b>+25.4</b><span>LiveMath vs SkillOpt (nano)</span></div>
-      <div class="metric"><b>nano&nbsp;&gt;&nbsp;5.5</b><span>SpreadsheetBench nano+HarnessOpt beats 5.5+SkillOpt+standard harness</span></div>
+      <div class="metric"><b>nano&nbsp;&gt;&nbsp;5.5</b><span>SpreadsheetBench GPT-5.4-nano+HarnessOpt beats GPT-5.5+SkillOpt+standard harness</span></div>
       <div class="metric"><b>2</b><span>Slash commands, one loop</span></div>
     </div>
   </section>
@@ -757,10 +757,9 @@
         <span class="eyebrow">04 · Results</span>
         <h2 class="section-title">Wins on every benchmark we tried.</h2>
         <p class="lede">
-          All numbers below reproduce from the shipped checkpoints via
-          <code>scripts/eval_only.py</code>. See
-          <a href="https://github.com/EvolvingLMMs-Lab/SkillOpt-Lite#run-harnessopt-loop-skill--harness-code" target="_blank" rel="noopener">the README</a>
-          for the exact invocation for each row.
+          All numbers below are from Table 1 of the paper (identical evaluation
+          protocol as SkillOpt — 6 benchmarks, 5 model scales) and reproduce
+          from the shipped checkpoints via <code>scripts/eval_only.py</code>.
         </p>
       </div>
       <div class="results-wrap">
@@ -776,9 +775,29 @@
             </thead>
             <tbody>
               <tr>
+                <td>SpreadsheetBench · nano · <b>HarnessOpt</b></td>
+                <td class="num">76.20 <span style="color:var(--quiet);font-weight:400;">(GPT-5.5)</span></td>
+                <td class="num">77.58 <span style="color:#16a34a;font-weight:600;">HarnessOpt</span></td>
+              </tr>
+              <tr>
                 <td>SpreadsheetBench · nano</td>
-                <td class="num">0.7620 <span style="color:var(--quiet);font-weight:400;">(5.5 + SkillOpt + std harness)</span></td>
-                <td class="num">0.7758 <span style="color:#16a34a;font-weight:600;">HarnessOpt</span></td>
+                <td class="num">51.6</td>
+                <td class="num">66.2 <span style="color:#16a34a;font-weight:600;">(+14.6)</span></td>
+              </tr>
+              <tr>
+                <td>SpreadsheetBench · 5.5</td>
+                <td class="num">76.2</td>
+                <td class="num">79.7 <span style="color:#16a34a;font-weight:600;">(+3.5)</span></td>
+              </tr>
+              <tr>
+                <td>LiveMath · nano</td>
+                <td class="num">30.3</td>
+                <td class="num">55.7 <span style="color:#16a34a;font-weight:600;">(+25.4)</span></td>
+              </tr>
+              <tr>
+                <td>LiveMath · 5.5</td>
+                <td class="num">64.8</td>
+                <td class="num">73.6 <span style="color:#16a34a;font-weight:600;">(+8.8)</span></td>
               </tr>
               <tr>
                 <td>ALFWorld · nano</td>
@@ -786,30 +805,28 @@
                 <td class="num">81.3 <span style="color:#16a34a;font-weight:600;">(+9.5)</span></td>
               </tr>
               <tr>
-                <td>LiveMath · 5.5</td>
-                <td class="num">baseline</td>
-                <td class="delta">+8.8</td>
+                <td>OfficeQA · 5.5</td>
+                <td class="num">72.2</td>
+                <td class="num">76.2 <span style="color:#16a34a;font-weight:600;">(+4.0)</span></td>
               </tr>
               <tr>
-                <td>LiveMath · nano</td>
-                <td class="num">baseline</td>
-                <td class="delta">+25.4</td>
-              </tr>
-              <tr>
-                <td>SpreadsheetBench · avg</td>
-                <td class="num">baseline</td>
-                <td class="delta">+12.6</td>
+                <td>DocVQA · 5.5</td>
+                <td class="num">91.2</td>
+                <td class="num">94.2 <span style="color:#16a34a;font-weight:600;">(+3.0)</span></td>
               </tr>
             </tbody>
           </table>
         </div>
         <figure class="figure reveal" style="margin: 0;">
-          <img src="assets/performance.png" alt="Performance chart across 6 benchmarks — SkillOptLite vs SkillOpt baseline">
+          <img src="assets/performance.png" alt="Performance chart across 6 benchmarks — SkillOpt-Lite vs SkillOpt baseline">
           <figcaption>Per-benchmark deltas vs. full SkillOpt.</figcaption>
         </figure>
       </div>
       <p class="caption-note">
-        Δ values are absolute-point gains over the full <a href="https://github.com/microsoft/SkillOpt" target="_blank" rel="noopener">SkillOpt</a> baseline reported in the same setting.
+        Numbers are absolute accuracy (%). Top row is the HarnessOpt headline:
+        GPT-5.4-nano with an evolved harness beats GPT-5.5 running standard
+        harness + full <a href="https://github.com/microsoft/SkillOpt" target="_blank" rel="noopener">SkillOpt</a>. Rows below are SkillOpt-Lite vs SkillOpt in
+        matched settings; see paper Section 4 for the full 5-model × 6-benchmark grid.
       </p>
     </div>
   </section>
